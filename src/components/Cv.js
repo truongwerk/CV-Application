@@ -21,6 +21,7 @@ class CvDemo extends React.Component {
 				</div>
 				<div id="rightSide">
 					<Introduction />
+					<Summary />
 					<Education />
 					<Experience />
 				</div>
@@ -94,6 +95,22 @@ class Introduction extends React.Component {
 	}
 }
 
+class Summary extends React.Component {
+	render() {
+		return (
+			<div id="summary">
+				<h2>SUMMARY</h2>
+				<p>
+					Chocolate cake chocolate sugar plum biscuit carrot cake sesame snaps
+					ice cream. Bear claw pudding chocolate bar soufflé wafer pie
+					croissant. Bear claw chocolate cake danish gingerbread sweet roll
+					dragée bonbon. Sweet roll pudding donut pudding shortbread.
+				</p>
+			</div>
+		);
+	}
+}
+
 class Education extends React.Component {
 	render() {
 		return (
@@ -105,10 +122,11 @@ class Education extends React.Component {
 		);
 	}
 }
+
 class Experience extends React.Component {
 	render() {
 		return (
-			<div id="Experience">
+			<div id="experience">
 				<h2>EXPERIENCE</h2>
 				<Company />
 				<Company />

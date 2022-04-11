@@ -2,11 +2,17 @@ div {
 	font-size: 2rem;
 }
 
+#cvWrapper {
+	border: 3px solid black;
+	width: calc(794px + 6px);
+	margin: 20px auto;
+	box-shadow: 5px 3px 18px 4px rgba(0, 0, 0, 0.75);
+}
+
 #cvDemo {
 	display: flex;
 	width: 794px;
 	min-height: 1123px;
-	margin: 20px auto;
 }
 
 #leftSide {
@@ -14,7 +20,7 @@ div {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	background-color: #FFD124;
+	background-color: #ffd124;
 }
 
 #profilePicture {
@@ -80,7 +86,7 @@ div {
 	width: 70%;
 }
 
-#introduction{
+#introduction {
 	margin-top: 30px;
 	margin-right: 30px;
 	margin-left: 30px;
@@ -103,4 +109,50 @@ div {
 	color: #ffffff;
 	text-align: right;
 	font-weight: bold;
+}
+
+#summary {
+	margin-top: 40px;
+}
+
+#summary h2 ,#education h2,#experience h2{
+	font-size: 2rem;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	border-bottom: 3px solid black;
+}
+
+#summary p {
+	margin: 15px;
+	font-size: 1.3rem;
+}
+
+#education ,#experience {
+	margin-top: 30px;
+}
+
+.school{
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.year{
+	width: 200px;
+	text-align: center;
+	font-size: 1.3rem;
+}
+
+.school div{
+	border-left: 3px solid black;
+	padding-left: 20px;
+}
+
+.schoolName{
+	font-weight: bold;
+	font-size: 1.3rem;
+	margin-bottom: 10px;
+}
+.major{
+	font-size: 1.2rem;
 }

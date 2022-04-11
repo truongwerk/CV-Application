@@ -26,7 +26,9 @@ class App extends React.Component {
 				<Input parentCallback={this.handleInputCallback} />
 				<p>{name}</p>
 				{this.checkName(name)}
-				<CvDemo />
+				<div id="cvWrapper">
+					<CvDemo />
+				</div>
 			</div>
 		);
 	}
