@@ -11,13 +11,18 @@ class CvDemo extends React.Component {
 		return (
 			<div id="cvDemo">
 				<div id="leftSide">
-					<h1>leftSide</h1>
-					<img src={anonymousProfile} alt="profilePicture"></img>
+					<img
+						id="profilePicture"
+						src={anonymousProfile}
+						alt="profilePicture"
+					></img>
 					<ConTact />
 					<Skill />
 				</div>
 				<div id="rightSide">
-					<h2>rightSide</h2>
+					<Introduction />
+					<Education />
+					<Experience />
 				</div>
 			</div>
 		);
@@ -28,31 +33,31 @@ class ConTact extends React.Component {
 	render() {
 		return (
 			<div id="contact">
-				<h2>ConTact</h2>
-				<div id="address">
+				<h2>CONTACT</h2>
+				<div id="address" className="contactInfo">
 					<img className="contactIcon" alt="address" src={addressLogo}></img>
-					<div className="contactInfo">
+					<div>
 						<h3>Address</h3>
 						<p>1234 Main Street, Anytown, Country</p>
 					</div>
 				</div>
-				<div id="phone">
+				<div id="phone" className="contactInfo">
 					<img className="contactIcon" alt="phone" src={phoneLogo}></img>
-					<div className="contactInfo">
+					<div>
 						<h3>Phone</h3>
 						<p>1234567890</p>
 					</div>
 				</div>
-				<div id="email">
+				<div id="email" className="contactInfo">
 					<img className="contactIcon" alt="email" src={emailLogo}></img>
-					<div className="contactInfo">
+					<div>
 						<h3>Email</h3>
 						<p>sample123456@gmail.com</p>
 					</div>
 				</div>
-				<div id="web">
+				<div id="web" className="contactInfo">
 					<img className="contactIcon" alt="web" src={webLogo}></img>
-					<div className="contactInfo">
+					<div>
 						<h3>Website</h3>
 						<p>sampleURL.dev</p>
 					</div>
@@ -73,6 +78,68 @@ class Skill extends React.Component {
 					<li>JavaScript</li>
 					<li>React</li>
 				</ul>
+			</div>
+		);
+	}
+}
+
+class Introduction extends React.Component {
+	render() {
+		return (
+			<div id="introduction">
+				<h1>John Dee</h1>
+				<h2>Font-End Web Developer</h2>
+			</div>
+		);
+	}
+}
+
+class Education extends React.Component {
+	render() {
+		return (
+			<div id="education">
+				<h2>EDUCATION</h2>
+				<School />
+				<School />
+			</div>
+		);
+	}
+}
+class Experience extends React.Component {
+	render() {
+		return (
+			<div id="Experience">
+				<h2>EXPERIENCE</h2>
+				<Company />
+				<Company />
+			</div>
+		);
+	}
+}
+
+class School extends React.Component {
+	render() {
+		return (
+			<div className="school">
+				<p className="year">2015 - 2016</p>
+				<div>
+					<p className="schoolName">School A</p>
+					<p className="major">Math</p>
+				</div>
+			</div>
+		);
+	}
+}
+
+class Company extends React.Component {
+	render() {
+		return (
+			<div className="school">
+				<p className="year">2017 - 2019</p>
+				<div>
+					<p className="schoolName">Company A</p>
+					<p className="major">Font - End</p>
+				</div>
 			</div>
 		);
 	}
