@@ -1,0 +1,23 @@
+* {
+	color: black;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+
+@page {
+	size: 21cm 29.7cm;
+	margin: 0;
+}
+@media all {
+	.pagebreak {
+		display: none;
+	}
+}
+
+@media print {
+	.pagebreak {
+		page-break-before: always;
+	}
+}
