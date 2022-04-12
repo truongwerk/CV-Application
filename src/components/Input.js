@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/input.css";
+import TextField from "@mui/material/TextField";
 
 class Input extends React.Component {
 	inputChange = (e) => {
@@ -6,8 +8,12 @@ class Input extends React.Component {
 	};
 	render() {
 		return (
-			<div>
-				<input onChange={this.inputChange}></input>
+			<div id="inputForm">
+				<div id="basicInput">
+					<h2>Basic information</h2>
+					<TextField label="Name" onChange={this.inputChange} id="inputName" />
+					<TextField label="Position"  id="inputName" />
+				</div>
 			</div>
 		);
 	}

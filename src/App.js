@@ -15,14 +15,26 @@ class App extends React.Component {
 
 	checkName = (name) => {
 		if (name === "truong") {
-			return <h2>Xin Chao Moi Nguoi</h2>;
+			return <h2>Xin</h2>;
 		}
 	};
 	render() {
 		const { name } = this.state;
 		return (
-			<div className="App">
-				<h1>Hello truong</h1>
+			<div id="App">
+				<header>
+					<h1>CV Application</h1>
+					<p>
+						© 2022 Create by{" "}
+						<a
+							href="https://github.com/truongwerk"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							Tong Quang Truong
+						</a>
+					</p>
+				</header>
 				<Input parentCallback={this.handleInputCallback} />
 				<p>{name}</p>
 				{this.checkName(name)}

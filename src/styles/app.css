@@ -5,6 +5,27 @@
 html {
 	font-size: 62.5%;
 	word-break: break-word;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(109, 255, 176, 1) 100%
+	);
+}
+
+header h1 {
+	font-family: "Orbitron", sans-serif;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 3.5rem;
+	font-weight: 500;
+	text-align: center;
+}
+
+header p{
+	text-align: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1.5rem;
 }
 
 @page {

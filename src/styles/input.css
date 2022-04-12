@@ -1,0 +1,10 @@
+#inputForm{
+	width: 500px;
+	margin: 30px auto;
+}
+
+
+#inputName{
+	background-color: white;
+	width: 300px;
+}

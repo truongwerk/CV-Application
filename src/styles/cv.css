@@ -7,6 +7,7 @@ div {
 	width: calc(794px + 6px);
 	margin: 20px auto;
 	box-shadow: 5px 3px 18px 4px rgba(0, 0, 0, 0.75);
+	background: rgb(255, 255, 255);
 }
 
 #cvDemo {
@@ -115,7 +116,9 @@ div {
 	margin-top: 40px;
 }
 
-#summary h2 ,#education h2,#experience h2{
+#summary h2,
+#education h2,
+#experience h2 {
 	font-size: 2rem;
 	padding-bottom: 10px;
 	padding-left: 20px;
@@ -127,32 +130,33 @@ div {
 	font-size: 1.3rem;
 }
 
-#education ,#experience {
+#education,
+#experience {
 	margin-top: 30px;
 }
 
-.school{
+.school {
 	margin-top: 20px;
 	display: flex;
 	align-items: center;
 }
 
-.year{
+.year {
 	width: 200px;
 	text-align: center;
 	font-size: 1.3rem;
 }
 
-.school div{
+.school div {
 	border-left: 3px solid black;
 	padding-left: 20px;
 }
 
-.schoolName{
+.schoolName {
 	font-weight: bold;
 	font-size: 1.3rem;
 	margin-bottom: 10px;
 }
-.major{
+.major {
 	font-size: 1.2rem;
 }
