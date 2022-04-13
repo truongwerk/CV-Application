@@ -6,20 +6,27 @@ class App extends React.Component {
 	constructor() {
 		super();
 
-		this.state = { name: "" };
+		this.state = {
+			name: "",
+			profile: "",
+			position: "",
+			description: "",
+			address: "",
+			phone: "",
+			email: "",
+			website: "",
+		};
 	}
 
-	handleInputCallback = (childData) => {
-		this.setState({ name: childData });
+	handleInputCallback = (childData, selector) => {
+		this.setState({ [selector]: childData });
+		// setTimeout(() => {
+		// 	console.log(this.state);
+		// }, 0);
 	};
 
-	checkName = (name) => {
-		if (name === "truong") {
-			return <h2>Xin</h2>;
-		}
-	};
 	render() {
-		const { name } = this.state;
+		const cvData = this.state;
 		return (
 			<div id="App">
 				<header>
@@ -36,10 +43,8 @@ class App extends React.Component {
 					</p>
 				</header>
 				<Input parentCallback={this.handleInputCallback} />
-				<p>{name}</p>
-				{this.checkName(name)}
 				<div id="cvWrapper">
-					<CvDemo />
+					<CvDemo cvData={cvData} />
 				</div>
 			</div>
 		);

@@ -5,26 +5,68 @@ import addressLogo from "../assets/addressLogo.svg";
 import phoneLogo from "../assets/phoneLogo.svg";
 import emailLogo from "../assets/emailLogo.svg";
 import webLogo from "../assets/webLogo.svg";
+import { Abc } from "@mui/icons-material";
 
 class CvDemo extends React.Component {
 	render() {
 		return (
 			<div id="cvDemo">
 				<div id="leftSide">
-					<img
-						id="profilePicture"
-						src={anonymousProfile}
-						alt="profilePicture"
-					></img>
-					<ConTact />
+					<Profile src={this.props.cvData.profile} />
+					<ConTact
+						address={this.props.cvData.address}
+						phone={this.props.cvData.phone}
+						email={this.props.cvData.email}
+						website={this.props.cvData.website}
+					/>
 					<Skill />
 				</div>
 				<div id="rightSide">
-					<Introduction />
-					<Summary />
+					<Introduction
+						name={this.props.cvData.name}
+						position={this.props.cvData.position}
+					/>
+					<Summary description={this.props.cvData.description} />
 					<Education />
 					<Experience />
 				</div>
+			</div>
+		);
+	}
+}
+
+class Introduction extends React.Component {
+	render() {
+		return (
+			<div id="introduction">
+				<h1>{this.props.name || "Name"}</h1>
+				<h2>{this.props.position || "Position"}</h2>
+			</div>
+		);
+	}
+}
+
+class Profile extends React.Component {
+	render() {
+		return (
+			<img
+				id="profilePicture"
+				src={this.props.src || anonymousProfile}
+				alt="profilePicture"
+			></img>
+		);
+	}
+}
+
+class Summary extends React.Component {
+	render() {
+		return (
+			<div id="summary">
+				<h2>DESCRIPTION</h2>
+				<p>
+					{this.props.description ||
+						"Cupcake shortbread cake danish chocolate chocolate cake chocolate bar. Powder carrot cake tiramisu marzipan donut cotton candy toffee chocolate. Chupa chups powder tiramisu macaroon danish caramels gummi bears."}
+				</p>
 			</div>
 		);
 	}
@@ -39,28 +81,28 @@ class ConTact extends React.Component {
 					<img className="contactIcon" alt="address" src={addressLogo}></img>
 					<div>
 						<h3>Address</h3>
-						<p>1234 Main Street, Anytown, Country</p>
+						<p>{this.props.address || "A Street, B Town, C Country"}</p>
 					</div>
 				</div>
 				<div id="phone" className="contactInfo">
 					<img className="contactIcon" alt="phone" src={phoneLogo}></img>
 					<div>
 						<h3>Phone</h3>
-						<p>1234567890</p>
+						<p>{this.props.phone || "123456789"}</p>
 					</div>
 				</div>
 				<div id="email" className="contactInfo">
 					<img className="contactIcon" alt="email" src={emailLogo}></img>
 					<div>
 						<h3>Email</h3>
-						<p>sample123456@gmail.com</p>
+						<p>{this.props.email || "abc@gmail.com"}</p>
 					</div>
 				</div>
 				<div id="web" className="contactInfo">
 					<img className="contactIcon" alt="web" src={webLogo}></img>
 					<div>
 						<h3>Website</h3>
-						<p>sampleURL.dev</p>
+						<p>{this.props.website || "abc.com"}</p>
 					</div>
 				</div>
 			</div>
@@ -72,40 +114,13 @@ class Skill extends React.Component {
 	render() {
 		return (
 			<div id="skill">
-				<h2>Skill</h2>
+				<h2>Skills</h2>
 				<ul>
 					<li>HTML</li>
 					<li>CSS</li>
 					<li>JavaScript</li>
 					<li>React</li>
 				</ul>
-			</div>
-		);
-	}
-}
-
-class Introduction extends React.Component {
-	render() {
-		return (
-			<div id="introduction">
-				<h1>John Dee</h1>
-				<h2>Font-End Web Developer</h2>
-			</div>
-		);
-	}
-}
-
-class Summary extends React.Component {
-	render() {
-		return (
-			<div id="summary">
-				<h2>SUMMARY</h2>
-				<p>
-					Chocolate cake chocolate sugar plum biscuit carrot cake sesame snaps
-					ice cream. Bear claw pudding chocolate bar soufflé wafer pie
-					croissant. Bear claw chocolate cake danish gingerbread sweet roll
-					dragée bonbon. Sweet roll pudding donut pudding shortbread.
-				</p>
 			</div>
 		);
 	}
