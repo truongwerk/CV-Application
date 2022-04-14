@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.b3294077.css",
-    "main.js": "/static/js/main.ef653e45.js",
-    "static/media/phoneLogo.svg": "/static/media/phoneLogo.c2638e558c3abb04a7259e7907bb4fc6.svg",
-    "index.html": "/index.html",
-    "static/media/emailLogo.svg": "/static/media/emailLogo.183fcfc4c80105005119e281d44c9085.svg",
-    "static/media/addressLogo.svg": "/static/media/addressLogo.67f02b1a121af9ae3b0d13a5a5262b88.svg",
-    "static/media/webLogo.svg": "/static/media/webLogo.4a137ffce72f2860dcc92930ab8e7b9f.svg",
-    "main.b3294077.css.map": "/static/css/main.b3294077.css.map",
-    "main.ef653e45.js.map": "/static/js/main.ef653e45.js.map"
+    "main.css": "/CV-Application/static/css/main.1dcfa2b2.css",
+    "main.js": "/CV-Application/static/js/main.efb84cc8.js",
+    "static/media/phoneLogo.svg": "/CV-Application/static/media/phoneLogo.aeb0f17ce3d62a2e78948789c5a2ea33.svg",
+    "index.html": "/CV-Application/index.html",
+    "static/media/addressLogo.svg": "/CV-Application/static/media/addressLogo.e7fd47c1c87a71a54729d2dab0563023.svg",
+    "static/media/deleteIcon.svg": "/CV-Application/static/media/deleteIcon.cb898dfc65187794b0b6d23fa1a5e017.svg",
+    "static/media/emailLogo.svg": "/CV-Application/static/media/emailLogo.4e58702bc80605d9854688d3ab00964c.svg",
+    "static/media/webLogo.svg": "/CV-Application/static/media/webLogo.94aefda28b05da6253c50451f48a8cef.svg",
+    "main.1dcfa2b2.css.map": "/CV-Application/static/css/main.1dcfa2b2.css.map",
+    "main.efb84cc8.js.map": "/CV-Application/static/js/main.efb84cc8.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3294077.css",
-    "static/js/main.ef653e45.js"
+    "static/css/main.1dcfa2b2.css",
+    "static/js/main.efb84cc8.js"
   ]
 }
