@@ -4,8 +4,9 @@ div {
 
 #cvWrapper {
 	border: 3px solid black;
-	width: calc(794px + 6px);
-	margin: 20px auto;
+	margin-bottom: 30px;
+	width: 800px;
+	height: 1129px;
 	box-shadow: 5px 3px 18px 4px rgba(0, 0, 0, 0.75);
 	background: rgb(255, 255, 255);
 }
@@ -13,7 +14,8 @@ div {
 #cvDemo {
 	display: flex;
 	width: 794px;
-	min-height: 1123px;
+	height: 1123px;
+	overflow: hidden;
 }
 
 #leftSide {
@@ -30,6 +32,10 @@ div {
 	margin-top: 30px;
 	margin-bottom: 40px;
 	border-radius: 50%;
+}
+
+#contact {
+	width: 100%;
 }
 
 #contact h2 {

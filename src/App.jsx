@@ -2,12 +2,13 @@ import React from "react";
 import Input from "./components/Input";
 import CvDemo from "./components/Cv";
 import "./styles/app.css";
+
 class App extends React.Component {
 	constructor() {
 		super();
 
 		this.state = {
-			name: "",
+			name: '',
 			profile: "",
 			position: "",
 			description: "",
@@ -15,6 +16,7 @@ class App extends React.Component {
 			phone: "",
 			email: "",
 			website: "",
+			skill: [],
 		};
 	}
 
@@ -42,9 +44,11 @@ class App extends React.Component {
 						</a>
 					</p>
 				</header>
-				<Input parentCallback={this.handleInputCallback} />
-				<div id="cvWrapper">
-					<CvDemo cvData={cvData} />
+				<div id="content">
+					<Input parentCallback={this.handleInputCallback} />
+					<div id="cvWrapper">
+						<CvDemo cvData={cvData} />
+					</div>
 				</div>
 			</div>
 		);

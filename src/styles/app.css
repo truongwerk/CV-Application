@@ -3,14 +3,23 @@
 	box-sizing: border-box;
 }
 html {
-	font-size: 62.5%;
+	font-size: 100%;
 	word-break: break-word;
 	background: rgb(255, 255, 255);
 	background: linear-gradient(
-		90deg,
-		rgba(255, 255, 255, 1) 0%,
-		rgba(109, 255, 176, 1) 100%
+		0deg,
+		rgba(255, 255, 255, 1) 10%,
+		rgba(84, 255, 252, 1) 100%
 	);
+	overflow: scroll;
+}
+
+#content {
+	max-width: 1500px;
+	display: flex;
+	margin-top: 30px;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 
 header h1 {
@@ -22,10 +31,22 @@ header h1 {
 	text-align: center;
 }
 
-header p{
+header p {
 	text-align: center;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	font-size: 1.5rem;
+}
+
+@media all and (max-width: 800px) {
+	#content {
+		display: block;
+	}
+}
+
+@media all and (min-width:1500px) {
+	#content{
+		margin: 30px auto;
+	}
 }
 
 @page {
