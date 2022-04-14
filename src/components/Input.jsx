@@ -23,19 +23,18 @@ class Input extends React.Component {
 		const selector = e.target.id.replace("input", "").toLowerCase();
 		this.props.parentCallback(URL.createObjectURL(e.target.files[0]), selector);
 	};
-
-	inputSkill = (value) => {
-		this.props.parentCallback(value, "skill");
+	inputMode = (value, mode) => {
+		this.props.parentCallback(value, mode);
 	};
-
 	render() {
 		return (
-			<div id="inputForm">
+			<>
 				<div id="basicInput">
 					<h2>Information</h2>
 					<TextField
 						label="Name"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						id="inputName"
 						className="longInput"
@@ -49,6 +48,7 @@ class Input extends React.Component {
 						/>
 						<Button
 							variant="outlined"
+							fullWidth
 							component="span"
 							endIcon={<PhotoCamera />}
 							id="profileLabel"
@@ -59,6 +59,7 @@ class Input extends React.Component {
 					<TextField
 						label="Position"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						id="inputPosition"
 						className="longInput"
@@ -66,9 +67,10 @@ class Input extends React.Component {
 					<TextField
 						label="Description"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						multiline
-						rows={3}
+						rows={4}
 						id="inputDescription"
 						className="longInput"
 					/>
@@ -76,6 +78,7 @@ class Input extends React.Component {
 					<TextField
 						label="Address"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						id="inputAddress"
 						className="longInput"
@@ -83,6 +86,7 @@ class Input extends React.Component {
 					<TextField
 						label="Phone"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						id="inputPhone"
 						className="longInput"
@@ -90,6 +94,7 @@ class Input extends React.Component {
 					<TextField
 						label="Email"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						id="inputEmail"
 						className="longInput"
@@ -97,14 +102,16 @@ class Input extends React.Component {
 					<TextField
 						label="Website"
 						fullWidth
+						size="small"
 						onChange={this.inputChange}
 						id="inputWebsite"
 						className="longInput"
 					/>
 				</div>
-				<SkillInput inputCallback={this.inputSkill} />
-				<EducationInput />
-			</div>
+				<SkillInput inputCallback={this.inputMode} />
+				<EducationInput inputCallback={this.inputMode} />
+				<ExperienceInput inputCallback={this.inputMode} />
+			</>
 		);
 	}
 }
@@ -119,12 +126,10 @@ class SkillInput extends React.Component {
 			inputSkill: [],
 		};
 	}
-
 	addSkill = () => {
 		this.setState({ inputSkill: this.state.inputSkill.concat("") });
 		this.updateCv();
 	};
-
 	deleteSkill = (i) => {
 		this.setState((state) => {
 			const inputSkill = state.inputSkill.filter((item, index) => index !== i);
@@ -133,7 +138,6 @@ class SkillInput extends React.Component {
 
 		this.updateCv();
 	};
-
 	changeSkill = (index, value) => {
 		this.setState((state) => {
 			const inputSkill = state.inputSkill.map((item, j) => {
@@ -150,11 +154,10 @@ class SkillInput extends React.Component {
 
 		this.updateCv();
 	};
-
 	updateCv = () => {
 		setTimeout(() => {
-			this.props.inputCallback(this.state.inputSkill);
-		}, 1);
+			this.props.inputCallback(this.state.inputSkill, "skill");
+		});
 	};
 
 	render() {
@@ -168,6 +171,7 @@ class SkillInput extends React.Component {
 								id="outlined-basic"
 								label={`Skill ${index + 1}`}
 								variant="outlined"
+								size="small"
 								value={element}
 								onChange={(e) => this.changeSkill(index, e.target.value)}
 							/>
@@ -175,7 +179,6 @@ class SkillInput extends React.Component {
 								src={deleteIcon}
 								alt="deleteIcon"
 								className="deleteIcon"
-								data-skill={index}
 								onClick={() => this.deleteSkill(index)}
 							/>
 						</div>
@@ -204,16 +207,222 @@ class EducationInput extends React.Component {
 			inputSchool: [],
 		};
 	}
+	addSchool = () => {
+		this.setState({
+			inputSchool: this.state.inputSchool.concat({
+				name: "",
+				major: "",
+				year: "",
+			}),
+		});
+		this.updateCv();
+	};
+	deleteSchool = (i) => {
+		this.setState((state) => {
+			const inputSchool = state.inputSchool.filter(
+				(element, index) => index !== i
+			);
+			return { inputSchool };
+		});
+		this.updateCv();
+	};
+	changeSchool = (i, value, mode) => {
+		this.setState((state) => {
+			const inputSchool = state.inputSchool.map((element, index) => {
+				if (index === i) {
+					return { ...element, [mode]: value };
+				} else {
+					return element;
+				}
+			});
+			return {
+				inputSchool,
+			};
+		});
+		this.updateCv();
+	};
+	updateCv = () => {
+		setTimeout(() => {
+			this.props.inputCallback(this.state.inputSchool, "education");
+		});
+	};
+
 	render() {
 		return (
 			<div id="educationInput">
 				<h2>Education</h2>
-				<IconButton aria-label="addCircleIcon" size="large" id="addSchool">
+				{this.state.inputSchool.map((element, index) => {
+					return (
+						<div key={index} className="schoolInput">
+							<TextField
+								label={`School ${index + 1}`}
+								fullWidth
+								value={element.name}
+								className="longInput"
+								size="small"
+								onChange={(e) => {
+									this.changeSchool(index, e.target.value, "name");
+								}}
+							/>
+							<TextField
+								label={`Major ${index + 1}`}
+								fullWidth
+								value={element.major}
+								className="longInput"
+								size="small"
+								onChange={(e) => {
+									this.changeSchool(index, e.target.value, "major");
+								}}
+							/>
+							<div>
+								<TextField
+									label={`Year ${index + 1}`}
+									fullWidth
+									value={element.year}
+									className="shortInput"
+									size="small"
+									onChange={(e) => {
+										this.changeSchool(index, e.target.value, "year");
+									}}
+								/>
+								<img
+									src={deleteIcon}
+									alt="deleteIcon"
+									className="deleteIcon"
+									onClick={() => {
+										this.deleteSchool(index);
+									}}
+								/>
+							</div>
+						</div>
+					);
+				})}
+				<IconButton
+					aria-label="addCircleIcon"
+					size="large"
+					id="addSchool"
+					onClick={this.addSchool}
+				>
 					<AddCircleIcon fontSize="inherit" />
 				</IconButton>
 			</div>
 		);
 	}
 }
+EducationInput.propTypes = {
+	inputCallback: PropTypes.func,
+};
+
+class ExperienceInput extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			inputCompany: [],
+		};
+	}
+	addCompany = () => {
+		this.setState({
+			inputCompany: this.state.inputCompany.concat({
+				name: "",
+				position: "",
+				year: "",
+			}),
+		});
+		this.updateCv();
+	};
+	deleteCompany = (i) => {
+		this.setState((state) => {
+			const inputCompany = state.inputCompany.filter(
+				(element, index) => index !== i
+			);
+			return { inputCompany };
+		});
+		this.updateCv();
+	};
+	changeCompany = (i, value, mode) => {
+		this.setState((state) => {
+			const inputCompany = state.inputCompany.map((element, index) => {
+				if (index === i) {
+					return { ...element, [mode]: value };
+				} else {
+					return element;
+				}
+			});
+			return {
+				inputCompany,
+			};
+		});
+		this.updateCv();
+	};
+	updateCv = () => {
+		setTimeout(() => {
+			this.props.inputCallback(this.state.inputCompany, "experience");
+		});
+	};
+	render() {
+		return (
+			<div id="experienceInput">
+				<h2>Experience</h2>
+				{this.state.inputCompany.map((element, index) => {
+					return (
+						<div key={index} className="schoolInput">
+							<TextField
+								label={`Company ${index + 1}`}
+								fullWidth
+								value={element.name}
+								className="longInput"
+								size="small"
+								onChange={(e) => {
+									this.changeCompany(index, e.target.value, "name");
+								}}
+							/>
+							<TextField
+								label={`Position ${index + 1}`}
+								fullWidth
+								value={element.position}
+								className="longInput"
+								size="small"
+								onChange={(e) => {
+									this.changeCompany(index, e.target.value, "position");
+								}}
+							/>
+							<div>
+								<TextField
+									label={`Year ${index + 1}`}
+									fullWidth
+									value={element.year}
+									className="shortInput"
+									size="small"
+									onChange={(e) => {
+										this.changeCompany(index, e.target.value, "year");
+									}}
+								/>
+								<img
+									src={deleteIcon}
+									alt="deleteIcon"
+									className="deleteIcon"
+									onClick={() => {
+										this.deleteCompany(index);
+									}}
+								/>
+							</div>
+						</div>
+					);
+				})}
+				<IconButton
+					aria-label="addCircleIcon"
+					size="large"
+					id="addCompany"
+					onClick={this.addCompany}
+				>
+					<AddCircleIcon fontSize="inherit" />
+				</IconButton>
+			</div>
+		);
+	}
+}
+ExperienceInput.propTypes = {
+	inputCallback: PropTypes.func,
+};
 
 export default Input;

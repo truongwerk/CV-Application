@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import "../styles/cv.css";
 import anonymousProfile from "../assets/anonymous.jpg";
 import addressLogo from "../assets/addressLogo.svg";

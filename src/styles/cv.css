@@ -3,10 +3,6 @@ div {
 }
 
 #cvWrapper {
-	border: 3px solid black;
-	margin-bottom: 30px;
-	width: 800px;
-	height: 1129px;
 	box-shadow: 5px 3px 18px 4px rgba(0, 0, 0, 0.75);
 	background: rgb(255, 255, 255);
 }

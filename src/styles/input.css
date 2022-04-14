@@ -11,9 +11,13 @@
 #inputForm h2 {
 	font-size: 1.5rem;
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 10px;
+}
+
+#basicInput h2 {
 	margin-bottom: 10px;
 }
+
 
 #profileLabel {
 	margin-bottom: 10px;
@@ -30,24 +34,38 @@
 }
 
 .skills {
-	margin-bottom: 10px;
+	margin-top: 10px;
 	display: flex;
 	align-items: center;
 }
 
-
-.deleteIcon{
+.deleteIcon {
 	width: 35px;
 	height: 35px;
-	padding: 3px;	
+	padding: 3px;
 	margin-left: 10px;
 	border-radius: 50%;
 	transition: 200ms;
 }
-.deleteIcon:hover{
+.deleteIcon:hover {
 	cursor: pointer;
 }
 
+#educationInput,
+#experienceInput {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+
+.schoolInput {
+	width: 100%;
+	margin-top: 10px;
+}
+
+#inputForm .shortInput {
+	width: 150px;
+}
 
 @media all and (max-width: 800px) {
 	#inputForm {
