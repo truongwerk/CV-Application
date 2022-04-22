@@ -3,8 +3,7 @@
 ## Live Demo
 
 - Build with webpack: https://truongwerk.github.io/CV-Application/
-- Build with vite: https://truongwerk.github.io/CV_APP_VITE/
-
+- Functional component repo: https://github.com/truongwerk/CV_APP_VITE
 ![](./screenshots/screenshot1.png)
 
 ## Features
